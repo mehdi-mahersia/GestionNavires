@@ -1,0 +1,7 @@
+<h2 class="text-danger">Supprimer le navire</h2>
+<hr>
+<p>Confirmer la suppression du navire <span style="font-weight: bold;">"{{ship?.numero}} - {{ship?.nom}}"</span> ?</p>
+<div class="d-flex">
+    <button class="btn btn-danger me-2" (click)="deleteShip()">Supprimer</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">Annuler</button>
+</div>

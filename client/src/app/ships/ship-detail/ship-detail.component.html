@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-6">
+        <form [formGroup]="shipForm" (ngSubmit)="shipForm.valid && updateShip()" autocomplete="off">
+            <h2 class="text-primary" *ngIf="shipId">Editer le navire</h2>
+            <h2 class="text-primary" *ngIf="!shipId">Créer un navire</h2>
+            <hr>
+            <app-text-input [formControl]="$any(shipForm.controls['numero'])" [label]="'Numéro'" [ngModel]="ship?.numero" ></app-text-input>
+            <app-text-input [formControl]="$any(shipForm.controls['nom'])" [label]="'Nom'" [ngModel]="ship?.nom" ></app-text-input>
+            <app-text-input [formControl]="$any(shipForm.controls['anneeConstruction'])" [label]="'Année de construction'" [type]="'number'" [ngModel]="ship?.anneeConstruction" ></app-text-input>
+            <app-text-input [formControl]="$any(shipForm.controls['longueur'])" [label]="'Longueur'" [type]="'number'" [ngModel]="ship?.longueur" ></app-text-input>
+            <app-text-input [formControl]="$any(shipForm.controls['largeur'])" [label]="'Largeur'" [type]="'number'" [ngModel]="ship?.largeur" ></app-text-input>
+            <app-text-input [formControl]="$any(shipForm.controls['tonnageBrut'])" [label]="'Tonnage brut'" [type]="'number'" [ngModel]="ship?.tonnageBrut" ></app-text-input>
+            <app-text-input [formControl]="$any(shipForm.controls['tonnageNet'])" [label]="'Tonnage net'" [type]="'number'" [ngModel]="ship?.tonnageNet" ></app-text-input>
+
+            <div class="row" *ngIf="validationErrors">
+                <ul class="text-danger">
+                    <li *ngFor="let error of validationErrors">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-success">Enregistrer</button>
+            </div>
+        </form>        
+    </div>
+</div>
+

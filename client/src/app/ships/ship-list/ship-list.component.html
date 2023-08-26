@@ -1,0 +1,37 @@
+<h2 class="text-primary">Liste des navires</h2>
+<button routerLink="/ships/new/" class="btn btn-primary mt-2">Nouveau</button>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Numéro</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Construit en</th>
+                <th scope="col">Dimension (Long. x Larg.)</th>
+                <th scope="col">Tonnage (brut / net)</th>
+                <th scope="col">Créé par</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ship of ships">
+                <th scope="row">{{ship.id}}</th>
+                <td>{{ship.numero}}</td>
+                <td>{{ship.nom}}</td>
+                <td>{{ship.anneeConstruction}}</td>
+                <td>{{ship.longueur}} x {{ship.largeur}}</td>
+                <td>{{ship.tonnageBrut}} / {{ship.tonnageNet}}</td>
+                <td>{{ship.user}}</td>
+                <td>
+                  <button routerLink="/ships/{{ship.id}}" class="btn btn-primary me-1"><i class="fa fa-edit"></i></button>
+                  <button routerLink="/ships/delete/{{ship.id}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
